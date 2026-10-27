@@ -1,0 +1,23 @@
+{
+  "name": "logseq-page-linker",
+  "version": "0.1.0",
+  "description": "Link mentions of existing pages in Logseq blocks",
+  "type": "module",
+  "main": "index.html",
+  "logseq": {
+    "id": "logseq-page-linker",
+    "title": "Page Linker",
+    "icon": "marketplace/logseq-page-linker/icon.png"
+  },
+  "scripts": {
+    "build": "tsc --noEmit && esbuild src/main.ts --bundle --format=iife --outfile=dist/main.js",
+    "test": "node --test --experimental-strip-types test/*.test.ts"
+  },
+  "dependencies": {
+    "@logseq/libs": "^0.0.17"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "typescript": "^5.7.2"
+  }
+}
