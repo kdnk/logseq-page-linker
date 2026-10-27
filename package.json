@@ -2,6 +2,7 @@
   "name": "logseq-page-linker",
   "version": "0.1.0",
   "description": "Link mentions of existing pages in Logseq blocks",
+  "license": "MIT",
   "type": "module",
   "main": "index.html",
   "logseq": {
@@ -10,7 +11,7 @@
     "icon": "assets/icon.png"
   },
   "scripts": {
-    "build": "tsc --noEmit && esbuild src/main.ts --bundle --format=iife --outfile=dist/main.js",
+    "build": "tsc --noEmit && esbuild src/main.ts --bundle --format=iife --outfile=dist/main.js && node -e \"require('node:fs').copyFileSync('node_modules/@logseq/libs/dist/lsplugin.user.js.LICENSE.txt', 'dist/lsplugin.user.js.LICENSE.txt')\"",
     "test": "node --test --experimental-strip-types test/*.test.ts"
   },
   "dependencies": {
