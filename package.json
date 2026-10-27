@@ -7,7 +7,7 @@
   "logseq": {
     "id": "logseq-page-linker",
     "title": "Page Linker",
-    "icon": "marketplace/logseq-page-linker/icon.png"
+    "icon": "assets/icon.png"
   },
   "scripts": {
     "build": "tsc --noEmit && esbuild src/main.ts --bundle --format=iife --outfile=dist/main.js",
