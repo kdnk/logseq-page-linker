@@ -21,7 +21,7 @@ jobs:
       - run: npm test
       - run: npm run build
       - name: Package plugin
-        run: zip -r dist.zip index.html package.json README.md LICENSE dist assets/icon.png
+        run: zip -r dist.zip index.html package.json README.md LICENSE dist assets/icon.png docs/page-linker-demo.gif
       - name: Publish release
         env:
           GH_TOKEN: ${{ github.token }}

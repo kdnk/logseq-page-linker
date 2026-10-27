@@ -1,6 +1,8 @@
 # Logseq Page Linker
 
-Link mentions of existing page names in a Logseq Markdown block. This is an initial Logseq adaptation of [Obsidian Automatic Linker](https://github.com/kdnk/obsidian-automatic-linker).
+Link mentions of existing page names in a Logseq block. This is an initial Logseq adaptation of [Obsidian Automatic Linker](https://github.com/kdnk/obsidian-automatic-linker).
+
+![Page Linker converts a page name into a link after editing](docs/page-linker-demo.gif)
 
 ## Install for development
 

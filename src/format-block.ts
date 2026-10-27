@@ -25,7 +25,7 @@ export async function formatBlock(block: BlockEntity, notify: boolean, options?:
     if (notify) await logseq.UI.showMsg("Finish editing the block first (press Escape), then run the command again.", "warning")
     return "retry"
   }
-  if (block.format !== "markdown" || !block.page) {
+  if ((block.format && block.format !== "markdown") || !block.page) {
     if (notify) await logseq.UI.showMsg("Page Linker currently supports Markdown blocks only.", "warning")
     return "done"
   }
