@@ -31,15 +31,22 @@ export async function formatBlock(block: BlockEntity, notify: boolean, options?:
   }
   const graph = await logseq.App.getCurrentGraph()
   const content = blockContent(block)
-  const [page, pages] = await Promise.all([
+  const [page, pages, tags] = await Promise.all([
     logseq.Editor.getPage(block.page.id),
     logseq.Editor.getAllPages(),
+    logseq.DB.datascriptQuery<number[]>(`[:find [?tag ...]
+      :where
+      (or-join [?tag]
+        [?block :block/tags ?tag]
+        (and [?tag :block/tags ?class]
+             [?class :db/ident :logseq.class/Tag]))]`),
   ])
   if (!graph || (options && graph.path !== options.graphPath) || !page || !pages || content === undefined) {
     if (notify) await logseq.UI.showMsg("Could not read the current graph, page, or block.", "warning")
     return "done"
   }
-  const result = linkText(content, buildIndex(pages.map(pageName)), pageName(page))
+  const tagIds = new Set(tags)
+  const result = linkText(content, buildIndex(pages.filter(candidate => !tagIds.has(candidate.id)).map(pageName)), pageName(page))
   if (result === content) {
     if (notify) await logseq.UI.showMsg("No page mentions to link.", "success")
     return "done"

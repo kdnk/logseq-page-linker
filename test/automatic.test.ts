@@ -11,12 +11,15 @@ test("waits for editing to finish, then links a saved block once", async () => {
   globalThis.logseq = {
     settings: { automaticLinking: true },
     App: { getCurrentGraph: async () => ({ path: "graph" }) },
-    DB: { onChanged: (callback: typeof listener) => { listener = callback; return () => { listener = () => {} } } },
+    DB: {
+      onChanged: (callback: typeof listener) => { listener = callback; return () => { listener = () => {} } },
+      datascriptQuery: async () => [],
+    },
     Editor: {
       checkEditing: async () => editing,
       getBlock: async () => block,
       getPage: async () => ({ name: "journal", originalName: "Journal" }),
-      getAllPages: async () => [{ name: "logseq", originalName: "Logseq" }],
+      getAllPages: async () => [{ id: 2, name: "logseq", originalName: "Logseq" }],
       updateBlock: async (_uuid: string, content: string) => { writes.push(content); block.content = content },
     },
   }

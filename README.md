@@ -14,7 +14,7 @@ Link mentions of existing page names in a Logseq block. This is an initial Logse
 
 Finish editing a block with Escape, select the block, and run **Page Linker: Link current block** from the command palette. For example, if `Logseq` is an existing page, `Learning Logseq` becomes `Learning [[Logseq]]`.
 
-The plugin matches page names with their original capitalization, prefers longer matches, and supports Japanese, Chinese, and Korean text. It skips the current page and one- or two-digit page names. Existing links, URLs, tags, block references, macros, code, and property lines are preserved. A changed block is checked again before writing; rerun the command if the graph or block changed during processing.
+The plugin matches page names with their original capitalization, prefers longer matches, and supports Japanese, Chinese, and Korean text. It skips tag definitions, the current page, and one- or two-digit page names. Existing links, URLs, tags, block references, macros, code, and property lines are preserved. A changed block is checked again before writing; rerun the command if the graph or block changed during processing.
 
 To link automatically, enable **Link after editing** in the plugin settings. The plugin watches saved blocks and waits until editing has stopped before updating them. Logseq does not expose a conditional block update, so a change made between the final check and the write could still be overwritten. Automatic linking is disabled by default.
 
