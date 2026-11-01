@@ -1,0 +1,4 @@
+- Logseq runtime verification
+    - After replacing an installed plugin bundle, disable and re-enable the plugin from the Plugins dashboard. Reloading the Logseq window can leave the previous plugin sandbox active.
+    - Verify automatic linking by editing and saving a block in Logseq, then read the persisted block through the Logseq CLI. CLI-only formatter checks do not verify the installed plugin runtime.
+    - Use a temporary page for runtime checks and recycle the page afterward. Do not use existing journal entries as test fixtures.
